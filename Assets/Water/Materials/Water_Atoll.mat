@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water_Atoll
+  m_Shader: {fileID: 4800000, guid: b89fdba4a43d87c41b10145cac80a194, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _CrestFoam: 0.15
+    - _DepthMaxDistance: 22
+    - _FoamDistance: 1.2
+    - _FoamNoiseScale: 0.8
+    - _FresnelPower: 5
+    - _ReflectionStrength: 0.8
+    - _RefractionStrength: 0.02
+    - _RippleScale: 0.35
+    - _RippleSpeed: 0.35
+    - _RippleStrength: 0.4
+    - _Smoothness: 0.9
+    - _SpecularIntensity: 1.5
+    - _WaveSpeed: 1
+    m_Colors:
+    - _DeepColor: {r: 0.01, g: 0.09, b: 0.26, a: 0.97}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.9}
+    - _ShallowColor: {r: 0.25, g: 0.85, b: 0.78, a: 0.12}
+    - _WaveA: {r: 1, g: 0.2, b: 0.05, a: 40}
+    - _WaveB: {r: 0.3, g: 1, b: 0.05, a: 20}
+    - _WaveC: {r: -0.6, g: 0.8, b: 0.05, a: 10}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
