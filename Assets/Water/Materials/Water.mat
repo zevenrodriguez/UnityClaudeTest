@@ -25,17 +25,17 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _CrestFoam: 0.185
+    - _CrestFoam: 0
     - _DepthMaxDistance: 4
     - _FoamDistance: 0.7
     - _FoamNoiseScale: 2.5
-    - _FresnelPower: 8.79
-    - _ReflectionStrength: 0.374
-    - _RefractionStrength: 0.1057
+    - _FresnelPower: 2.08
+    - _ReflectionStrength: 0
+    - _RefractionStrength: 0.0053
     - _RippleScale: 0.8
     - _RippleSpeed: 0.35
-    - _RippleStrength: 0.427
-    - _Smoothness: 0.462
+    - _RippleStrength: 0
+    - _Smoothness: 0
     - _SpecularIntensity: 1.64
     - _WaveSpeed: 1
     m_Colors:
