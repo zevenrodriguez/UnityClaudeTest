@@ -33,6 +33,17 @@ Shader "Custom/Water"
         _FoamDistance ("Shore Foam Distance", Float) = 0.7
         _FoamNoiseScale ("Foam Noise Scale", Float) = 2.5
         _CrestFoam ("Wave Crest Foam", Range(0, 1)) = 0.3
+
+        // Optional murky zone (e.g. mangrove creeks): an ellipse in world XZ where the water turns
+        // brown-green and opaque, waves calm down, and floating scum drifts. Off when strength = 0.
+        [Header(Murky Zone)]
+        _MurkStrength ("Murk Strength", Range(0, 1)) = 0
+        _MurkColor ("Murk Color", Color) = (0.206, 0.176, 0.086, 0.95)
+        _ScumColor ("Scum Color", Color) = (0.349, 0.323, 0.206, 1)
+        _MurkCenter ("Murk Center (xz)", Vector) = (0, 0, 0, 0)
+        _MurkRadii ("Murk Radii (xz)", Vector) = (38, 26, 0, 0)
+        _MurkEdge ("Murk Edge (inner, outer)", Vector) = (0.7, 1.05, 0, 0)
+        _MurkWaveScale ("Murk Wave Scale", Range(0, 1)) = 0.03
     }
 
     SubShader
@@ -89,6 +100,13 @@ Shader "Custom/Water"
                 float _FoamDistance;
                 float _FoamNoiseScale;
                 half _CrestFoam;
+                half _MurkStrength;
+                half4 _MurkColor;
+                half4 _ScumColor;
+                float4 _MurkCenter;
+                float4 _MurkRadii;
+                float4 _MurkEdge;
+                half _MurkWaveScale;
             CBUFFER_END
 
             struct Attributes
@@ -121,6 +139,15 @@ Shader "Custom/Water"
                 float2 u = f * f * (3.0 - 2.0 * f);
                 return lerp(lerp(Hash(i), Hash(i + float2(1, 0)), u.x),
                             lerp(Hash(i + float2(0, 1)), Hash(i + float2(1, 1)), u.x), u.y);
+            }
+
+            // 0 outside the murky ellipse, up to _MurkStrength inside; the edge is warped by noise.
+            float MurkMask(float2 xz)
+            {
+                if (_MurkStrength <= 0) return 0;
+                float r = length((xz - _MurkCenter.xy) / max(_MurkRadii.xy, 1e-3));
+                r += (ValueNoise(xz * 0.03) - 0.5) * 0.35;
+                return (1.0 - smoothstep(_MurkEdge.x, _MurkEdge.y, r)) * _MurkStrength;
             }
 
             float2 NoiseSlope(float2 p)
@@ -160,6 +187,12 @@ Shader "Custom/Water"
                 float3 offset = GerstnerWave(_WaveA, positionWS, tangent, binormal, amplitude)
                               + GerstnerWave(_WaveB, positionWS, tangent, binormal, amplitude)
                               + GerstnerWave(_WaveC, positionWS, tangent, binormal, amplitude);
+
+                // sheltered murky water barely moves
+                float calm = lerp(1.0, _MurkWaveScale, MurkMask(positionWS.xz));
+                offset *= calm;
+                tangent = float3(1, 0, 0) + (tangent - float3(1, 0, 0)) * calm;
+                binormal = float3(0, 0, 1) + (binormal - float3(0, 0, 1)) * calm;
                 positionWS += offset;
 
                 output.positionWS = positionWS;
@@ -205,6 +238,10 @@ Shader "Custom/Water"
 
                 // Water body: tint the refracted scene by depth.
                 half4 waterColor = lerp(_ShallowColor, _DeepColor, saturate(refrDepthDiff / max(_DepthMaxDistance, 1e-3)));
+                float murk = MurkMask(positionWS.xz);
+                waterColor = lerp(waterColor, _MurkColor, murk);
+                float scum = smoothstep(0.6, 0.68, ValueNoise(positionWS.xz * 0.6 + _Time.y * float2(0.012, 0.007))) * murk;
+                waterColor = lerp(waterColor, half4(_ScumColor.rgb, 1), scum);
                 half3 bodyLit = waterColor.rgb * (lightColor * (0.4 + 0.6 * NdotL) + ambient);
                 half3 color = lerp(sceneColor, bodyLit, waterColor.a);
 
@@ -224,7 +261,7 @@ Shader "Custom/Water"
                 float shoreFoam = smoothstep(foamNoise - 0.05, foamNoise + 0.05, shore);
                 float crestFoam = smoothstep(1.0 - _CrestFoam * 0.5, 1.0, input.crest) * step(0.001, _CrestFoam)
                                 * smoothstep(0.3, 0.7, foamNoise);
-                float foam = saturate(shoreFoam + crestFoam) * _FoamColor.a;
+                float foam = saturate(shoreFoam + crestFoam) * _FoamColor.a * (1.0 - murk * 0.8);
                 color = lerp(color, _FoamColor.rgb * (lightColor * (0.5 + 0.5 * NdotL) + ambient), foam);
 
                 color = MixFog(color, input.fogFactor);

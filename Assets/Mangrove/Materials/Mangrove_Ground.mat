@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mangrove_Ground
+  m_Shader: {fileID: 4800000, guid: 1775226acb2ff6a479d5ec4b8d5b57f2, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BumpHeight: 0.03
+    - _DrySmoothness: 0.08
+    - _MuckScale: 1.5
+    - _PuddleSmoothness: 0.88
+    - _WetSmoothness: 0.7
+    m_Colors:
+    - _MudDark: {r: 0.111999966, g: 0.09299997, b: 0.06999998, a: 1}
+    - _MudLight: {r: 0.29299998, g: 0.24799997, b: 0.18299997, a: 1}
+    - _MudMid: {r: 0.20599997, g: 0.17599997, b: 0.13299996, a: 1}
+    - _SpeckColor: {r: 0.43699995, g: 0.34899998, b: 0.23499995, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

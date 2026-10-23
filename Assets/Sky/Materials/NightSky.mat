@@ -40,9 +40,9 @@ Material:
     - _SkyRotationSpeed: 0.3
     - _StarBrightness: 2
     - _StarColorVariation: 0.6
-    - _StarCoverage: 0.123
-    - _StarDensity: 20
-    - _StarSize: 0.02
+    - _StarCoverage: 0.55
+    - _StarDensity: 140
+    - _StarSize: 0.1
     - _TwinkleAmount: 0.45
     - _TwinkleSpeed: 2.5
     m_Colors:

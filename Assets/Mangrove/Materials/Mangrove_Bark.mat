@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mangrove_Bark
+  m_Shader: {fileID: 4800000, guid: fe34be8d10c4fd64aada9e4093b8d21a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BumpHeight: 0.004
+    - _FissureDepth: 0.45
+    - _LenticelDensity: 55
+    - _LichenAmount: 0.8
+    - _Smoothness: 0.18
+    - _WetHeight: 0.45
+    - _WetSmoothness: 0.72
+    m_Colors:
+    - _AlgaeColor: {r: 0.20599997, g: 0.24799997, b: 0.14299998, a: 1}
+    - _BarnacleColor: {r: 0.735, g: 0.715, b: 0.66499996, a: 1}
+    - _FissureScale: {r: 14, g: 2.2, b: 0, a: 0}
+    - _InnerBarkColor: {r: 0.34899998, g: 0.20599997, b: 0.14299998, a: 1}
+    - _LenticelColor: {r: 0.601, g: 0.5659999, b: 0.5059999, a: 1}
+    - _LichenColorA: {r: 0.547, g: 0.5659999, b: 0.485, a: 1}
+    - _LichenColorB: {r: 0.68, g: 0.68, b: 0.642, a: 1}
+    - _MudColor: {r: 0.18999997, g: 0.15999997, b: 0.12799996, a: 1}
+    - _TideBand: {r: 0.05, g: 0.55, b: 0, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
