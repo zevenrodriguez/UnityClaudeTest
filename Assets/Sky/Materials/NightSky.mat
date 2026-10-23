@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NightSky
+  m_Shader: {fileID: 4800000, guid: bf3ed5d40da4abb4496b690c96d9714c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _DustStrength: 0.8
+    - _Exposure: 1
+    - _HorizonGlowHeight: 0.12
+    - _MilkyWayCoreAngle: 210
+    - _MilkyWayIntensity: 0.5
+    - _MilkyWayWidth: 0.16
+    - _MoonFollowsLight: 1
+    - _MoonGlowIntensity: 0.35
+    - _MoonGlowSize: 0.12
+    - _MoonIntensity: 2.5
+    - _MoonPhase: 0.25
+    - _MoonSize: 3
+    - _SkyRotationSpeed: 0.3
+    - _StarBrightness: 2
+    - _StarColorVariation: 0.6
+    - _StarCoverage: 0.55
+    - _StarDensity: 140
+    - _StarSize: 0.1
+    - _TwinkleAmount: 0.45
+    - _TwinkleSpeed: 2.5
+    m_Colors:
+    - _GroundColor: {r: 0.004, g: 0.005, b: 0.01, a: 1}
+    - _HorizonColor: {r: 0.02, g: 0.035, b: 0.06999998, a: 1}
+    - _HorizonGlowColor: {r: 0.035, g: 0.049999982, b: 0.059999965, a: 1}
+    - _MilkyWayAxis: {r: 0.35, g: 0.55, b: 0.75, a: 0}
+    - _MilkyWayColor: {r: 0.7, g: 0.78, b: 1, a: 1}
+    - _MilkyWayCoreColor: {r: 1, g: 0.85, b: 0.65, a: 1}
+    - _MoonColor: {r: 1, g: 0.96999997, b: 0.9, a: 1}
+    - _MoonDirection: {r: -0.4, g: 0.5, b: 0.75, a: 0}
+    - _PoleAxis: {r: 0, g: 0.6, b: 0.8, a: 0}
+    - _ZenithColor: {r: 0.003, g: 0.006, b: 0.02, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
